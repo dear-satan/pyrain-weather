@@ -33,7 +33,7 @@ class AsciiArtDisplay(Static):
 
 
 class WeatherDisplay(Static):
-    """Simplified widget to display weather data only."""
+    """Widget to display weather data"""
 
     def __init__(self, **kwargs):
         super().__init__("", **kwargs)
@@ -47,7 +47,7 @@ class WeatherDisplay(Static):
         weather_text = Text()
         weather_text.append(APP_HEADER, style="bold cyan")
 
-        # Define data mapping for cleaner code
+        # Define data fields
         data_fields = [
             ("LOCATION", "location", "bold cyan"),
             ("TEMPERATURE", "temperature", "bold yellow"),
@@ -157,7 +157,7 @@ class HourlyDisplayBase(Static):
 
             # Separator
             if row_end < total_hours:
-                hourly_text.append("─" * 60 + "\n", style="dim white")
+                hourly_text.append("─" * 60 + "\n", style="dim white") # who named those colors smh
 
         return hourly_text
 
@@ -175,7 +175,7 @@ class HourlyDisplay(HourlyDisplayBase):
 
 
 class TomorrowHourlyDisplay(HourlyDisplayBase):
-    """Widget to display tomorrow's hourly weather forecast in columns."""
+    """tommorows weather"""
 
     def __init__(self, **kwargs):
         super().__init__("TOMORROW HOURLY FORECAST", **kwargs)
@@ -187,7 +187,7 @@ class TomorrowHourlyDisplay(HourlyDisplayBase):
 
 
 class DetailedDisplay(Static):
-    """Simplified detailed weather information widget."""
+    """location etc."""
 
     def __init__(self, **kwargs):
         super().__init__("", **kwargs)
@@ -543,7 +543,7 @@ class WeatherApp(App):
             self.notify(f"Error: {str(e)} (pyrain-weather)", severity="error")
 
 
-def main():
+def main(): # for pypi
     """Run the pyrain-weather app."""
     app = WeatherApp()
     app.run()
