@@ -4,10 +4,8 @@ from datetime import datetime, timedelta
 from textual.app import App, ComposeResult
 from textual.containers import Container, Horizontal, Vertical
 from textual.widgets import Header, Footer, Input, Static, Button, TabbedContent, TabPane
-from textual.timer import Timer
 from rich.text import Text
 from .art import get_colored_weather_art, APP_HEADER, FORECAST_HEADER
-
 
 class AsciiArtDisplay(Static):
     """Widget to display weather ASCII art."""
